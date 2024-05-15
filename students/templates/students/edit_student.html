@@ -1,0 +1,17 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+<div class="flex justify-center items-center min-h-screen bg-blue-100">
+  <div class="w-full max-w-md p-8 rounded-lg shadow-lg bg-blue-700">
+    <h2 class="text-2xl font-semibold text-white mb-6">Edit Student</h2>
+    <form action="{% url 'edit_student' student.id %}" method="POST">
+      {% csrf_token %}
+      <div class="grid grid-cols-1 gap-4">
+        {{ form.as_p }}
+      </div>
+      <div class="flex justify-center mt-4">  <button type="submit" class="bg-white text-blue-700 font-bold py-2 px-4 rounded hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Update Student</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

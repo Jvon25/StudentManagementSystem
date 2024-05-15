@@ -1,0 +1,23 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+<div class="flex justify-center items-center min-h-screen bg-blue-100">
+  <div class="w-full max-w-md p-8 rounded-lg shadow-lg bg-blue-400">
+    <div class="flex justify-between mb-6">
+      <h2 class="text-2xl font-semibold text-white">Add Student</h2>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white hover:text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M10 5a1 1 0 00-1 1v3a1 1 0 002 0v-3a1 1 0 00-1-1zM4 8a.5.5 0 01.5-.5h3a.5.5 0 010 1h-3A.5.5 0 014 8zM9 11a1 1 0 102 0v2a1 1 0 002-1v-2a1 1 0 00-2-1zM16 8a.5.5 0 01.5-.5h3a.5.5 0 010 1h-3A.5.5 0 0116 8zM11 14a1 1 0 102 0v2a1 1 0 002-1v-2a1 1 0 00-2-1z" clip-rule="evenodd" />
+      </svg>
+    </div>
+    <form action="{% url 'add_student' %}" method="POST">
+      {% csrf_token %}
+      <div class="grid grid-cols-1 gap-4">
+        {{ form.as_p }}
+      </div>
+      <button type="submit" class="w-full py-2 px-4 bg-white text-blue-700 font-bold rounded-md border border-gray-300 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 mt-8">
+        Save Student
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}
